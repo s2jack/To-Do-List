@@ -1,0 +1,12 @@
+{
+  "name": "project-template-01",
+  "version": "1.0.0",
+  "description": "This project helps to build a PHP project quickly. It comes with installed packages such as linters and webpack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
