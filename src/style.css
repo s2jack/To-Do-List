@@ -1,7 +1,26 @@
 .hello {
-  color: red;
+  color: blue;
 }
 
 body {
   background-color: bisque;
+  width: 100vw;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#task-list {
+  width: 365px;
+  height: 760px;
+}
+
+.form-element {
+  width: 100%;
+  height: 36px;
+  background-color: aliceblue;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
