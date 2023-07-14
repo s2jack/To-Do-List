@@ -4,6 +4,9 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   mode: 'development',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Output Management',
@@ -21,5 +24,8 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
 };
