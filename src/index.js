@@ -1,3 +1,5 @@
+/*   eslint linebreak-style: ["error", "windows"]   */
+
 import _ from 'lodash';
 import './style.css';
 
