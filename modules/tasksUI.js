@@ -29,7 +29,7 @@ export default class TasksUI {
         console.log(obj);
       }); */
       tasksDbInstance
-        .filter((task) => task.isCompleted !== true)
+        .filter((task) => task.completed !== true)
         .forEach((task) => {
           // console.log(task);
           const taskContainer = document.createElement('div');
