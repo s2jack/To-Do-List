@@ -6,8 +6,8 @@ export default class PageLoader {
   loadDefault = () => {
     // Add heading
     const listHeading = document.createElement('h2');
-    listHeading.className = 'headingUI';
-    listHeading.innerText = `Today's To Do Task List`; // eslint-disable-line quotes
+    listHeading.className = 'headingUI flex';
+    listHeading.innerText = `Here's your ani-friends`; // eslint-disable-line quotes
     section.appendChild(listHeading);
     // Add Task Input Elements
     const addTaskInputContainer = document.createElement('div');
@@ -16,7 +16,7 @@ export default class PageLoader {
     const addTaskInput = document.createElement('input');
     addTaskInput.id = 'task-input';
     addTaskInput.type = 'text';
-    addTaskInput.placeholder = 'Add your task...';
+    addTaskInput.placeholder = 'Add any Ani to your list';
     addTaskInputContainer.appendChild(addTaskInput);
     addTaskInput.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {

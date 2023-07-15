@@ -18,8 +18,8 @@ export default class TasksUI {
     if (this.checkData() === false || this.checkData() === null) {
       const tasksUIelement = document.querySelector('#taskUI');
       tasksUIelement.style = 'height: 10%;';
-      tasksUIelement.innerText = 'Please add some tasks to display';
-      tasksUIelement.className = 'warn-message';
+      tasksUIelement.innerText = 'Please add ani friends to interact';
+      tasksUIelement.className = 'warn-message flex';
     } else {
       const tasksUIelement = document.querySelector('#taskUI');
       tasksUIelement.style = 'height: 80%;';
