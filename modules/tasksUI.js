@@ -1,12 +1,4 @@
-// import Task from './taskClass.js';
-
-const newArr = [
-  { description: 'task01', completed: false, index: 1 },
-  { description: 'task02', completed: false, index: 2 },
-  { description: 'task03', completed: false, index: 3 },
-];
-
-localStorage.setItem('tasksDB', JSON.stringify(newArr));
+import Task from './taskClass.js';
 
 export default class TasksUI {
   static checkData = () => {
@@ -57,7 +49,7 @@ export default class TasksUI {
     }
   };
 
-  /* static addTask() {
+  static addTask() {
     // console.log('event works');
     const dB = JSON.parse(localStorage.getItem('tasksDB')) || [];
     // console.log(dB);
@@ -65,21 +57,22 @@ export default class TasksUI {
     if (addTaskInput.value) {
       // console.log('input filled');
       // console.log(addTaskInput.value);
-      if (localStorage.getItem('tasksDB') === null) {
+      // if (localStorage.getItem('tasksDB') === null) {
         // console.log('database empty');
-        const task = new Task(addTaskInput.value, 0);
+        const index = dB.length + 1;
+        const task = new Task(addTaskInput.value, index);
         const newDB = [...dB, task];
         localStorage.setItem('tasksDB', JSON.stringify(newDB));
         TasksUI.checkData();
         TasksUI.loadTasksUI();
-      } else {
-        // console.log('database has value');
+      /* } else {
+         console.log('database has value');
         const task = new Task(addTaskInput.value, dB.length);
         const newDB = [...dB, task];
         localStorage.setItem('tasksDB', JSON.stringify(newDB));
         TasksUI.checkData();
         TasksUI.loadTasksUI();
-      }
+       } */
     }
-  } */
+  }
 }
