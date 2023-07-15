@@ -27,12 +27,8 @@ export default class TasksUI {
       tasksUIelement.className = '';
       // console.log('you have data on your LcStr');
       const tasksDbInstance = JSON.parse(localStorage.getItem('tasksDB'));
-      // console.log(`taskDBInstance: ${tasksDbInstance}`);
-      /* tasksDbInstance.forEach((obj) => {
-        console.log(obj);
-      }); */
       tasksDbInstance
-        .filter((task) => task.completed !== true)
+        // .filter((task) => task.completed !== true)
         .forEach((task) => {
           // console.log(task);
           const taskContainer = document.createElement('div');
@@ -70,7 +66,6 @@ export default class TasksUI {
     if (addTaskInput.value) {
       // console.log('input filled');
       // console.log(addTaskInput.value);
-      // if (localStorage.getItem('tasksDB') === null) {
       // console.log('database empty');
       const index = dB.length + 1;
       const task = new Task(addTaskInput.value, index);
@@ -80,11 +75,6 @@ export default class TasksUI {
       TasksUI.loadTasksUI();
       /* } else {
          console.log('database has value');
-        const task = new Task(addTaskInput.value, dB.length);
-        const newDB = [...dB, task];
-        localStorage.setItem('tasksDB', JSON.stringify(newDB));
-        TasksUI.checkData();
-        TasksUI.loadTasksUI();
        } */
     }
   }
