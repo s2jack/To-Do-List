@@ -51,7 +51,6 @@ header {
 }
 
 .clear-button,
-.list-element,
 .warn-message,
 .headingUI,
 .addTaskBar {
@@ -62,11 +61,13 @@ header {
   border: 1px solid black;
 }
 
-#task-container {
+.list-element {
+  width: 100%;
   height: 16%;
-  display: flex;
   gap: 26px;
-  align-items: center;
+  background-color: aliceblue;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 
 .headingUI {
