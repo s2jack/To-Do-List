@@ -37,7 +37,7 @@ body {
   margin: 0;
 }
 
-header{
+header {
   margin-top: 26px;
 }
 
@@ -98,6 +98,7 @@ header{
   font-family: 'Nanum Brush Script', cursive;
   font-size: 24px;
   color: #d17b11;
+
   /* text-shadow: -1px 0 #d17b11, 0 1px #d17b11, 1px 0 #d17b11, 0 -1px #d17b11; */
 }
 
