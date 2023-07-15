@@ -112,7 +112,7 @@ export default class TasksUI {
     // console.log(order);
     // console.log(tasksDbInstance[order]);
     const elementInput = document.getElementsByClassName('task-title-text')[order];
-    tasksDbInstance[order]['description'] = elementInput.value;
+    tasksDbInstance[order].description = elementInput.value;
     // console.log(tasksDbInstance[order]);
     localStorage.setItem('tasksDB', JSON.stringify(tasksDbInstance));
     // console.log(tasksDbInstance);
