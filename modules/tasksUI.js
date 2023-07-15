@@ -1,9 +1,17 @@
-import Task from './taskClass.js';
+// import Task from './taskClass.js';
+
+const newArr = [
+  {description: 'task01', completed: false, index: 1},
+  {description: 'task02', completed: false, index: 2},
+  {description: 'task03', completed: false, index: 3},
+]
+
+localStorage.setItem('tasksDB', JSON.stringify(newArr));
 
 export default class TasksUI {
   static checkData = () => {
     if (localStorage.getItem('tasksDB') === null) {
-      // console.log(localStorage.getItem('tasksDB'));
+      console.log(localStorage.getItem('tasksDB'));
       return false;
     }
     return true;
@@ -49,7 +57,7 @@ export default class TasksUI {
     }
   };
 
-  static addTask() {
+  /* static addTask() {
     // console.log('event works');
     const dB = JSON.parse(localStorage.getItem('tasksDB')) || [];
     // console.log(dB);
@@ -73,5 +81,5 @@ export default class TasksUI {
         TasksUI.loadTasksUI();
       }
     }
-  }
+  }*/
 }

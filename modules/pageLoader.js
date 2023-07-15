@@ -22,7 +22,7 @@ export default class PageLoader {
       if (event.key === 'Enter') {
         event.preventDefault();
         // console.log('pressed Enter');
-        TasksUI.addTask();
+        // TasksUI.addTask();
       }
     });
     const tasksUI = document.createElement('div');
