@@ -1,18 +1,22 @@
+import _ from 'lodash';
 import Task from './taskClass.js';
 
 export default class TasksUI {
   static checkData = () => {
-    if (localStorage.getItem('tasksDB') === null) {
-      // console.log(localStorage.getItem('tasksDB'));
+    console.log('checking database')
+    console.log(localStorage.getItem('tasksDB') == '[]')
+    if (localStorage.getItem('tasksDB') === null || localStorage.getItem('tasksDB') == '[]') {
+      console.log(localStorage.getItem('tasksDB'));
       return false;
     }
     return true;
   };
 
   static loadTasksUI = () => {
-    // console.log(this.checkData())
+    console.log(this.checkData());
+    console.log('dataBase checking before loading Tasks UI')
     if (this.checkData() === false || this.checkData() === null) {
-      // console.log('database is empty');
+
       const tasksUIelement = document.querySelector('#taskUI');
       tasksUIelement.style = 'height: 10%;';
       tasksUIelement.innerText = 'Please add some tasks to display';
@@ -39,12 +43,21 @@ export default class TasksUI {
           const taskToogle = document.createElement('input');
           taskToogle.type = 'checkbox';
           taskToogle.className = 'task';
+          taskToogle.id = `${task.index}`;
           taskContainer.appendChild(taskToogle);
-          const taskTitle = document.createElement('p');
+          const taskTitle = document.createElement('input');
           taskTitle.className = 'task-title-text';
-          taskTitle.id = `task${task.index};`;
-          taskTitle.innerHTML = task.description;
+          taskTitle.id = `${task.index}`;
+          taskTitle.value = task.description;
           taskContainer.appendChild(taskTitle);
+
+          taskTitle.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              console.log('pressed Enter');
+              this.editTask(event);
+            }});
+          taskToogle.addEventListener('change', this.removeTask)
         });
     }
   };
@@ -74,5 +87,34 @@ export default class TasksUI {
         TasksUI.loadTasksUI();
        } */
     }
+  }
+
+  static removeTask (event) {
+    const tasksDbInstance = JSON.parse(localStorage.getItem('tasksDB')) || [];
+    const order = parseInt(event.target.id) - 1;
+    const newDB = tasksDbInstance.splice(order, 1);
+    localStorage.setItem('tasksDB', JSON.stringify(tasksDbInstance));
+    tasksDbInstance.forEach(element => {
+      console.log(element)
+      if(element.index - 1 >= order) {
+        element.index = element.index -1;
+        console.log(element.index);
+      }
+    });
+    localStorage.setItem('tasksDB', JSON.stringify(tasksDbInstance));
+  }
+
+  static editTask (event) {
+    const tasksDbInstance = JSON.parse(localStorage.getItem('tasksDB')) || [];
+    // console.log(tasksDbInstance);
+    // console.log(event.target);
+    const order = parseInt(event.target.id) - 1;
+    // console.log(order);
+    // console.log(tasksDbInstance[order]);
+    const elementInput = document.getElementsByClassName('task-title-text')[order];
+    tasksDbInstance[order].description = elementInput.value;
+    // console.log(tasksDbInstance[order]);
+    localStorage.setItem('tasksDB', JSON.stringify(tasksDbInstance));
+    // console.log(tasksDbInstance);
   }
 }
