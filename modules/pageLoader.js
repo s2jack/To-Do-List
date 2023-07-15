@@ -1,4 +1,6 @@
 import TasksUI from './tasksUI.js';
+import AddTask from './addTask.js';
+import RemoveTask from './removeTask.js';
 
 const section = document.querySelector('#appUI');
 
@@ -6,8 +8,8 @@ export default class PageLoader {
   loadDefault = () => {
     // Add heading
     const listHeading = document.createElement('h2');
-    listHeading.className = 'headingUI';
-    listHeading.innerText = `Today's To Do Task List`; // eslint-disable-line quotes
+    listHeading.className = 'headingUI flex';
+    listHeading.innerText = `Here's your ani-friends`; // eslint-disable-line quotes
     section.appendChild(listHeading);
     // Add Task Input Elements
     const addTaskInputContainer = document.createElement('div');
@@ -16,13 +18,12 @@ export default class PageLoader {
     const addTaskInput = document.createElement('input');
     addTaskInput.id = 'task-input';
     addTaskInput.type = 'text';
-    addTaskInput.placeholder = 'Add your task...';
+    addTaskInput.placeholder = 'Add any Ani to your list';
     addTaskInputContainer.appendChild(addTaskInput);
     addTaskInput.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
-        // console.log('pressed Enter');
-        TasksUI.addTask();
+        AddTask.addThis();
       }
     });
     const tasksUI = document.createElement('div');
@@ -36,5 +37,10 @@ export default class PageLoader {
     clearButton.className = 'clear-button';
     clearButton.innerText = 'Clear all completed';
     section.appendChild(clearButton);
+
+    clearButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      RemoveTask.removeThis();
+    });
   };
 }
