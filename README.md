@@ -53,7 +53,7 @@ This project only works client side right now.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Coming Soon...
+> <a href="https://s2jack.github.io/anilist.github.io/dist">You can test and take a look here...<a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

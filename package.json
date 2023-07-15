@@ -1,5 +1,5 @@
 {
-  "name": "To-Do-List",
+  "name": "anilist",
   "version": "1.0.0",
   "description": "This is a To Do List project builded by php. You can add-remove and reorder personal tasks with drag and drop features.",
   "private": true,
