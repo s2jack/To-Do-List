@@ -102,6 +102,7 @@ export default class TasksUI {
       }
     });
     localStorage.setItem('tasksDB', JSON.stringify(tasksDbInstance));
+    TasksUI.loadTasksUI();
   }
 
   static editTask(event) {
