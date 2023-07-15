@@ -1,14 +1,9 @@
-import _ from 'lodash';
+import _ from 'lodash'; // eslint-disable-line no-unused-vars
 import './style.css';
+import PageLoader from '../modules/pageLoader.js';
 
-function component() {
-  const element = document.createElement('div');
+// Task List Loader function
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const pageLoaderInstance = new PageLoader();
 
-  return element;
-}
-
-document.body.appendChild(component());
+pageLoaderInstance.loadDefault();
